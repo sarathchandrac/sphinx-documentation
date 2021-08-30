@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "python main.py"
+    ports:
+      - 8001:5000
+    volumes:
+      - .:/app
+
+  documentation:
+    build:
+      context: .
+      dockerfile: DockerfileDoc
+    command: bash -c "cd ./docs && python -m http.server 14000"
+    ports:
+      - 14000:14000

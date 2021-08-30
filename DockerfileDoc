@@ -1,0 +1,9 @@
+FROM python:3.9
+ENV PYTHONUNBUFFERED 1
+WORKDIR /app
+COPY doc.requirements.txt /app/doc.requirements.txt
+RUN pip install -r doc.requirements.txt
+COPY . /app
+
+# cd docs
+# new termninal ind docs directory
